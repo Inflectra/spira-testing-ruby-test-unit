@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<project name="Ruby Test::Unit Runner" default="rununittest" basedir="C:\Subversion\Projects\Inflectra\Trunk\Products and Services\Add Ons\Ruby Test-Unit Runner">
+
+	<target name="rununittest" description="Runs the sample Ruby Test::Unit Tests">
+		<echo message="Running the sample Ruby Test::Unit tests"/>
+		<exec program="ruby" verbose="true">
+			<arg value="ts_examples.rb" />
+		</exec>	
+	</target>
+	
+	<target name="zipup" description="Zips up the whole application for deployment">
+		<echo message="Zipping up entire application" />
+		<zip zipfile="RubyTestUnitRunner.zip" verbose="true" comment="Ruby Test::Unit Runner for SpiraTest">
+			<fileset>
+				<include name="*.rb" />
+				<include name="*.txt" />
+			</fileset>
+		</zip>
+	</target>
+	
+</project>

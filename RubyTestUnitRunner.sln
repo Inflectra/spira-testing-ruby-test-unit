@@ -1,0 +1,19 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7D4090E0-4904-4A07-A350-9ED4540643A9}"
+	ProjectSection(SolutionItems) = preProject
+		adder.rb = adder.rb
+		spiratestexecute.rb = spiratestexecute.rb
+		spiratestrunner.rb = spiratestrunner.rb
+		subtracter.rb = subtracter.rb
+		tc_adder.rb = tc_adder.rb
+		tc_subtracter.rb = tc_subtracter.rb
+		ts_examples.rb = ts_examples.rb
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
