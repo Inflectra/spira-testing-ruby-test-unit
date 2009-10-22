@@ -38,7 +38,15 @@ module Test
 					#soap.wiredump_file_base = "soapresult" 
 					
 					#now we call the methods on the web service, passing the parameters
-					params = {"userName" => @userName, "password" => @password, "projectId" => projectId, "testerUserId" => testerUserId, "testCaseId" => testCaseId, "releaseId" => releaseId, "testSetId" => testSetId,, "startDate" => startDate, "endDate" => endDate, "executionStatusId" => executionStatusId, "runnerName" => runnerName, "runnerTestName" => runnerTestName, "runnerAssertCount" => runnerAssertCount, "runnerMessage" => runnerMessage, "runnerStackTrace" => runnerStackTrace }
+					params = {"userName" => @userName, "password" => @password, "projectId" => projectId, "testerUserId" => testerUserId, "testCaseId" => testCaseId, "startDate" => startDate, "endDate" => endDate, "executionStatusId" => executionStatusId, "runnerName" => runnerName, "runnerTestName" => runnerTestName, "runnerAssertCount" => runnerAssertCount, "runnerMessage" => runnerMessage, "runnerStackTrace" => runnerStackTrace }
+					#add any optional parameters
+					if releaseId != -1
+						params["releaseId"] = releaseId
+					end
+					if testSetId != -1
+						params["testSetId"] = testSetId
+					end
+
 					result = soap.TestRun_RecordAutomated2(params)
 					
 					#display the results
