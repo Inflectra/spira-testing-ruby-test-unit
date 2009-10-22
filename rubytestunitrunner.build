@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<project name="Ruby Test::Unit Runner" default="rununittest" basedir="C:\Subversion\Projects\Inflectra\Trunk\Products and Services\Add Ons\Ruby Test-Unit Runner">
+<project name="Ruby Test::Unit Runner" default="rununittest">
 
 	<target name="rununittest" description="Runs the sample Ruby Test::Unit Tests">
 		<echo message="Running the sample Ruby Test::Unit tests"/>
