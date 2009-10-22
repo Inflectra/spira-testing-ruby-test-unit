@@ -38,19 +38,29 @@ module Test
 					#soap.wiredump_file_base = "soapresult" 
 					
 					#now we call the methods on the web service, passing the parameters
-					params = {"userName" => @userName, "password" => @password, "projectId" => projectId, "testerUserId" => testerUserId, "testCaseId" => testCaseId, "startDate" => startDate, "endDate" => endDate, "executionStatusId" => executionStatusId, "runnerName" => runnerName, "runnerTestName" => runnerTestName, "runnerAssertCount" => runnerAssertCount, "runnerMessage" => runnerMessage, "runnerStackTrace" => runnerStackTrace }
-					#add any optional parameters
-					if releaseId != -1
-						params["releaseId"] = releaseId
-					end
-					if testSetId != -1
-						params["testSetId"] = testSetId
-					end
+					params = {}
+          params["userName"] = @userName
+          params["password"] = @password
+          params["projectId"] = @projectId
+          params["testerUserId"] = testerUserId
+          params["testCaseId"] = testCaseId
+          params["startDate"] = startDate
+          params["endDate"] = endDate
+          params["executionStatusId"] = executionStatusId
+          params["runnerName"] = runnerName
+          params["runnerTestName"] = runnerTestName
+          params["runnerAssertCount"] = runnerAssertCount
+          params["runnerMessage"] = runnerMessage
+          params["runnerStackTrace"] = runnerStackTrace
+          #these pass -1 if optional which is handled correctly by the service
+          params["releaseId"] = releaseId
+					params["testSetId"] = testSetId
 
-					result = soap.TestRun_RecordAutomated2(params)
+
+          result = soap.testRun_RecordAutomated2(params)
 					
 					#display the results
-					testRunId = result.TestRun_RecordAutomated2Result
+					testRunId = result.testRun_RecordAutomated2Result
 					puts("Successfully recorded test run " + testRunId.to_s + " for test case: " + testCaseId.to_s)
 				end
 			end

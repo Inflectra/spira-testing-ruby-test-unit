@@ -35,6 +35,7 @@ module Test
 				@password = password
 				@projectId = projectId
         @releaseId = releaseId
+        @testSetId = testSetId
 				@output_level = output_level
 				@io = io
 				@already_outputted = false
@@ -120,7 +121,8 @@ module Test
           end          
   
           #now transmit the result to SpiraTest
-          testerUserId = -1 #default to the userName
+          #default to the userName
+          testerUserId = -1
      
           #extract the test case id from the name (separated by two underscores)
           if testName.include? "__" then
