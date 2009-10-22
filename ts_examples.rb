@@ -17,7 +17,10 @@ class TS_Examples
 end
 
 #The following line runs the tests using the SpiraTest runner
-testRunner = Test::Unit::SpiraTest::TestRunner.new(TS_Examples, "http://sandman/SpiraTest", "fredbloggs", "fredbloggs", 1, 2)
+projectId = 1
+releaseId = -1
+testSetId = 1
+testRunner = Test::Unit::SpiraTest::TestRunner.new(TS_Examples, "http://sandman/SpiraTest", "fredbloggs", "fredbloggs", projectId, releaseId, testSetId)
 testRunner.start
 
 #The following line simply runs the tests using the standard console runner

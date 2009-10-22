@@ -10,7 +10,7 @@ module Test
 			#	test results in SpiraTest or SpiraTeam
 			#
 			#	Author		Inflectra Corporation
-			#	Version		2.0.1
+			#	Version		2.3.0
 
 			class TestRunner
 				extend Test::Unit::UI::TestRunnerUtilities
@@ -24,7 +24,7 @@ module Test
 			  # failures, and the final result. io specifies
 			  # where runner output should go to; defaults to
 			  # STDOUT.
-			  def initialize(suite, baseUrl, userName, password, projectId, releaseId, output_level=Test::Unit::UI::NORMAL, io=STDOUT)
+			  def initialize(suite, baseUrl, userName, password, projectId, releaseId=-1, testSetId=-1, output_level=Test::Unit::UI::NORMAL, io=STDOUT)
 				if (suite.respond_to?(:suite))
 				  @suite = suite.suite
 				else
@@ -125,7 +125,7 @@ module Test
           #extract the test case id from the name (separated by two underscores)
           if testName.include? "__" then
             testCaseId = testName.split("__")[1].to_i
-            spiraTestExecute.recordTestRun(testerUserId, testCaseId, @releaseId, startDate, endDate, executionStatusId, TEST_RUNNER_NAME, testName, assertCount, message, stackTrace)
+            spiraTestExecute.recordTestRun(testerUserId, testCaseId, @releaseId, @testSetId, startDate, endDate, executionStatusId, TEST_RUNNER_NAME, testName, assertCount, message, stackTrace)
           end
         end
         nl
