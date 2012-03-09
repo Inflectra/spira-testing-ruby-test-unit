@@ -8,7 +8,7 @@ module Test
 			#	for calling the SOAP web service exposed by SpiraTest
 			#
 			#	Author		Inflectra Corporation
-			#	Version		2.3.0
+			#	Version		3.2.0
 
 			class SpiraTestExecute
 
@@ -52,10 +52,13 @@ module Test
           params["runnerAssertCount"] = runnerAssertCount
           params["runnerMessage"] = runnerMessage
           params["runnerStackTrace"] = runnerStackTrace
-          #these pass -1 if optional which is handled correctly by the service
-          params["releaseId"] = releaseId
+          #these pass -1 if optional which needs to be passed as nulls
+		  if (releaseId > 0)
+			params["releaseId"] = releaseId
+	      end
+		  if (testSetId > 0)
 					params["testSetId"] = testSetId
-
+		  end
 
           result = soap.testRun_RecordAutomated2(params)
 					
